@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Disclosure } from '@headlessui/react'
 import { Badge, Button } from "@material-tailwind/react";
+import Cart from './Cart';
 
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon, HeartIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import LangMenu from './LangMenu';
@@ -17,13 +18,15 @@ function Example() {
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
   }
+  const [isOpen, setOpen] = useState(false)
 
  
 
   return (
     <Disclosure as="nav" className="bg-white">
       {({ open }) => (
-      <>
+        <>
+        <Cart isOpen={isOpen} setOpen={setOpen} />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between">
             <div className="flex justify-between items-center h-full w-full px-6 ">
@@ -59,7 +62,9 @@ function Example() {
                 <UserIcon className=" size-5" />
               </button>
               <Badge content={6} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
-              <Button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full ">
+              <Button 
+                onClick={()=>setOpen(!isOpen)}
+                className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full ">
                 <ShoppingCartIcon className=" size-5" />
               </Button>
               </Badge>
