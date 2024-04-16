@@ -18,7 +18,7 @@ function App() {
       <Hero/>
       <Filter/>
 
-      <div className='m-auto items-center max-sm:flex max-sm:flex-col   grid grid-cols-3 xl:grid-cols-4 max-md:grid-cols-2  justify-between  gap-6 mx-[10vw]'>
+      <div className='m-auto items-center max-md:flex max-md:flex-col  grid xl:grid-cols-3 2xl:grid-cols-4 max-xl:grid-cols-2  justify-between  gap-6 mx-[10vw]'>
         {list.map((e,index)=>(
             <Card index={index} key={e}/>
           ))}
