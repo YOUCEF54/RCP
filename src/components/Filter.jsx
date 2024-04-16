@@ -10,6 +10,7 @@ import { GoSun } from "react-icons/go";
 export default function Filter(){
     return(
         <div className=" mb-10  md:w-[79.5vw]  m-auto  mt-10  border-[#AE8D70] rounded-full">
+            <h2 className="text-3xl border-zinc-500 pl-2 pb-3 border-b-2  ">Shop by</h2>
             <div className=" scroll  flex overflow-auto space-x-4 text-xl font-medium relative rounded-   border-[#AE8D70]  ">
                 <button className="p-2 m-4 pl-4 flex space-x-4 items-center border rounded-full  border-[#AE8D70]">
                     <div>Men</div>
