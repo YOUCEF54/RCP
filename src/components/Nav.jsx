@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Disclosure } from '@headlessui/react'
+import { Badge, Button } from "@material-tailwind/react";
 
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon, HeartIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import LangMenu from './LangMenu';
@@ -50,16 +51,19 @@ function Example() {
 
                 </div>
               </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3 ">
+            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3 h-full ">
               <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
                 <HeartIcon className=" size-5" />
               </button>
               <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
                 <UserIcon className=" size-5" />
               </button>
-              <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
+              <Badge content={6} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
+              <Button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full ">
                 <ShoppingCartIcon className=" size-5" />
-              </button>
+              </Button>
+              </Badge>
+
             </div>
             </div>
             <div className="-mr-2 flex gap-12 items-center sm:hidden">

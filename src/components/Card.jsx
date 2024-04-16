@@ -110,10 +110,10 @@ export default function Card(){
                     <RatingUI value={3}/>
                 </div> */}
 
-        <div class="flex justify-between mt-3 item-center ">
-            <h1 class="text-xl font-bold text-gray-700">
-                
-            </h1>
+        <div class="flex justify-end gap-2 mt-3 item-center ">
+            <button className="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-500 rounded">
+                see more
+            </button>
             <button class="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-800 rounded">
                 Add to Card
             </button>
