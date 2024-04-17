@@ -91,7 +91,7 @@ function ProfileMenu() {
   );
 }
  
-export function ComplexNavbar() {
+export function UserDropDown() {
 
   return (
     <Navbar className=" border-none">
