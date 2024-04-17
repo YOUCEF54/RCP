@@ -51,7 +51,7 @@ function ProfileMenu() {
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
-      <button className=" bg-[#0095FB]f border border-zinc-300 p-2 font-light text- rounded-full">
+      <button className=" bg-[#0095FB]f border border-zinc-300 p-2 font-light text- rounded-full ">
 
             <UserIcon className="text-black  size-5" />
         </button>
@@ -94,7 +94,7 @@ function ProfileMenu() {
 export function ComplexNavbar() {
 
   return (
-    <Navbar className=" rounded-full">
+    <Navbar className=" border-none">
       <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
         <ProfileMenu />
       </div>

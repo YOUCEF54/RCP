@@ -52,16 +52,26 @@ function Example() {
                 </button>
                 </div>
 
-                <LangMenu Items={["English", "French","Arabic", "Spanish"]}/>
+                <LangMenu 
+                  Items={[
+                    { name: "English", country: "US" },
+                    { name: "French", country: "FR" },
+                    { name: "Arabic", country: "MA" },
+                    { name: "Spanish", country: "ES" }
+                  ]}
+                />
 
                 </div>
               </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3 h-full ">
+            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3  h-fit ">
               <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
                 <HeartIcon className=" size-5" />
               </button>
                 {/* <UserIcon className=" size-5" /> */}
+            <div className=' '>
+
                 <ComplexNavbar/>
+            </div>
 
               <Badge content={6} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
               <Button 
