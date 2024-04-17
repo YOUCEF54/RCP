@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Disclosure } from '@headlessui/react'
 import { Badge, Button } from "@material-tailwind/react";
 import Cart from './Cart';
+import {ComplexNavbar} from "./Dropdown"
+
 
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon, HeartIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import LangMenu from './LangMenu';
@@ -58,9 +60,9 @@ function Example() {
               <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
                 <HeartIcon className=" size-5" />
               </button>
-              <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
-                <UserIcon className=" size-5" />
-              </button>
+                {/* <UserIcon className=" size-5" /> */}
+                <ComplexNavbar/>
+
               <Badge content={6} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
               <Button 
                 onClick={()=>setOpen(!isOpen)}
