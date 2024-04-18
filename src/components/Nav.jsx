@@ -69,7 +69,7 @@ function Example() {
                 <UserDropDown/>
             </div>
 
-              <Badge content={6} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
+              <Badge content={2} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
               <Button 
                 onClick={()=>setOpen(!isOpen)}
                 className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full ">
