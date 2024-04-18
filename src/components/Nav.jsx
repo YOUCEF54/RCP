@@ -14,8 +14,11 @@ function Example() {
   
 
   const menu = [
-    { name: 'Home', url: '/', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 px-0" },
-    { name: 'About us', url: '/about_us', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0" },
+    { name: 'Home', url: '/', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 px-0 " },
+    { name: 'New Clothes', url: '/new_clothes', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'Trending', url: '/trending', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'About us', url: '/about_us', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'Contact us', url: '/contact_us', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
   ];
 
   function classNames(...classes) {
@@ -37,9 +40,9 @@ function Example() {
               <div className="flex font-roboto  font-bold text-3xl flex-shrink-0 items-center ">
                 Logo
               </div>
-              <div className="hidden sm:flex justify-end w-full sm:space-x-4  ">
+              <div className={`hidden sm:flex justify-end w-full sm:space-x-4  `}>
                 {menu.map((e, index) => (
-                  <a href={e.url} key={index} className={classNames((currentPath === e.url) && " w-fit  border-[#707070]", e.className)} >
+                  <a href={e.url} key={index} className={classNames((currentPath === e.url) && " w-fit  border-b-2 border-zinc-400", e.className,`sm:${(isInputOpen)&&`hidden`}`)} >
                     {e.name}
                   </a>
                 ))}
@@ -49,7 +52,7 @@ function Example() {
                 {/* inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 max-md:hidden  */}
                 <div className="">
                 <div className='flex justify-end items-center'>
-                  <input placeholder={`${(isInputOpen)?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen)?`w-[11rem]`:`w-[2.9rem] bg-[#AC8C6E]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
+                  <input placeholder={`${(isInputOpen)?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen)?`w-[30vw]`:`w-[2.9rem] bg-[#AC8C6F]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
                   <button onClick={()=>setInputOpen(!isInputOpen)} className={`  ${(isInputOpen)?``:` bg-blck text-white `} duration-200 outline-none  absolute border mr-1 border-zinc-300  p-2 font-light text- rounded-full`}>
                     <MagnifyingGlassIcon className=" size-5 " />
                   </button>
@@ -57,7 +60,7 @@ function Example() {
 
                 </div>
               </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3  h-fit ">
+            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3  h-fit  ">
               <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
                 <HeartIcon className=" size-5" />
               </button>
@@ -75,6 +78,16 @@ function Example() {
               </Badge>
 
             </div>
+            </div>
+            <div className=' flex justify-end my-auto'>
+            <LangMenu 
+                  Items={[
+                    { name: "English", country: "US" },
+                    { name: "French", country: "FR" },
+                    { name: "Arabic", country: "MA" },
+                    { name: "Spanish", country: "ES" }
+                  ]}
+                />
             </div>
             <div className="-mr-2 flex gap-12 items-center sm:hidden">
             <div className='flex justify-end items-center'>
