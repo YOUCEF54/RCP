@@ -18,7 +18,7 @@ function Example() {
     { name: 'New Clothes', url: '/new_clothes', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
     { name: 'Trending', url: '/trending', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
     { name: 'About us', url: '/about_us', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
-    { name: 'Contact us', url: '/contact_us', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'Contact us', url: '/contact_us', className: " inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
   ];
 
   function classNames(...classes) {
@@ -35,25 +35,27 @@ function Example() {
       {({ open }) => (
         <>
         <Cart isOpen={isOpen} setOpen={setOpen} />
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 justify-between">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
+          <div className="flex h-16 justify-between ">
             <div className="flex justify-between items-center h-full w-full px-6 ">
-              <div className="flex font-roboto  font-bold text-3xl flex-shrink-0 items-center ">
+              <div className="flex font-roboto   font-bold text-3xl flex-shrink-0 items-center ">
                 Logo
               </div>
-              <div className={`hidden lg:flex justify-end w-full sm:space-x-4  `}>
+              <div className={`hidden  lg:flex justify-end w-full sm:space-x-4  `}>
+                <div className='mr-12 space-x-4'>
                 {menu.map((e, index) => (
                   <a href={e.url} key={index} className={classNames((currentPath === e.url) && " w-fit  border-b-2 border-zinc-400", e.className,`sm:${(isInputOpen)&&`hidden`}`)} >
                     {e.name}
                   </a>
                 ))}
+                </div>
                 {/* <div className=" h-2 min-h-[1em] w-0.5 m-auto bg-neutral-200 dark:bg-white/10  max-md:hidden">
                   
                 </div> */}
                 {/* inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 max-md:hidden  */}
                 <div className='flex justify-end items-center ml-8'>
                   <input onChange={(e)=>setInputValue(e.target.value) }
-                  disabled={!isInputOpen} placeholder={`${(isInputOpen )?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen || inputValue !== "")?`w-[30vw]`:`w-[2.9rem] bg-[#AC8C6F]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
+                  disabled={!isInputOpen} placeholder={`${(isInputOpen )?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen || inputValue !== "")?`w-[30vw]`:`w-[2.9rem] absolute bg-[#AC8C6F]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
                   <button onClick={()=>(inputValue === "")&&setInputOpen(!isInputOpen)} className={`  ${(isInputOpen)?``:` bg-blck text-white `} duration-200 outline-none  absolute border mr-1 border-zinc-300  p-2 font-light text- rounded-full`}>
                     <MagnifyingGlassIcon className=" size-5 " />
                   </button>
@@ -79,7 +81,7 @@ function Example() {
 
             </div>
             </div>
-            <div className=' flex justify-end my-auto max-lg:hidden'>
+            <div className='  my-auto max-lg:hidden'>
             <LangMenu 
                   Items={[
                     { name: "English", country: "US" },
@@ -89,13 +91,15 @@ function Example() {
                   ]}
                 />
             </div>
-            <div className="-mr-2 flex gap-12 items-center lg:hidden">
-            <div className='flex justify-end items-center'>
-                <input placeholder='search...' type='text' className='border w-[50vw] px-3 py-[.55rem] outline-none focus:ring-1 ring-[#AE8D70] rounded-full '/>
-                <button className=" absolute border mr-[.19rem] border-zinc-300  p-2 font-light text- rounded-full">
-                  <MagnifyingGlassIcon className=" size-5 " />
-                </button>
-            </div>
+            
+            <div className='my-auto  w-[1000%] lg:size-0'>
+              <div className="-mr- flex justify-center w-full  items-center lg:hidden">
+              <div className='flex  justify-end items-center m-auto'>
+                  <input placeholder='search...' type='text' className='border w-[50vw] px-3 py-[.55rem] outline-none focus:ring-1 ring-[#AE8D70] rounded-full '/>
+                  <button className=" absolute border mr-[.19rem] border-zinc-300  p-2 font-light text- rounded-full">
+                    <MagnifyingGlassIcon className=" size-5 " />
+                  </button>
+              </div>
             
               <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 {open ? (
@@ -104,6 +108,8 @@ function Example() {
                   <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                 )}
               </Disclosure.Button>
+            </div>
+
             </div>
           </div>
         </div>
