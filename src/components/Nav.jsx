@@ -5,9 +5,9 @@ import Cart from './Cart';
 import {UserDropDown} from "./Dropdown"
 
 
-import { Bars3Icon, XMarkIcon, ShoppingCartIcon, UserIcon, HeartIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, ShoppingCartIcon, HeartIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import LangMenu from './LangMenu';
-import { useDeprecatedAnimatedState } from 'framer-motion';
+import { useAnimation } from 'framer-motion';
 
 function Example() {
   const [currentPath] = useState(window.location.pathname);
@@ -25,9 +25,10 @@ function Example() {
     return classes.filter(Boolean).join(' ')
   }
   const [isOpen, setOpen] = useState(false)
+  const [inputValue,setInputValue] = useState("")
 
  
-  const [isInputOpen , setInputOpen] = useState(true)
+  const [isInputOpen , setInputOpen] = useState(false)
 
   return (
     <Disclosure as="nav" className="bg-white">
@@ -40,7 +41,7 @@ function Example() {
               <div className="flex font-roboto  font-bold text-3xl flex-shrink-0 items-center ">
                 Logo
               </div>
-              <div className={`hidden sm:flex justify-end w-full sm:space-x-4  `}>
+              <div className={`hidden lg:flex justify-end w-full sm:space-x-4  `}>
                 {menu.map((e, index) => (
                   <a href={e.url} key={index} className={classNames((currentPath === e.url) && " w-fit  border-b-2 border-zinc-400", e.className,`sm:${(isInputOpen)&&`hidden`}`)} >
                     {e.name}
@@ -50,17 +51,16 @@ function Example() {
                   
                 </div> */}
                 {/* inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 max-md:hidden  */}
-                <div className="">
-                <div className='flex justify-end items-center'>
-                  <input placeholder={`${(isInputOpen)?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen)?`w-[30vw]`:`w-[2.9rem] bg-[#AC8C6F]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
-                  <button onClick={()=>setInputOpen(!isInputOpen)} className={`  ${(isInputOpen)?``:` bg-blck text-white `} duration-200 outline-none  absolute border mr-1 border-zinc-300  p-2 font-light text- rounded-full`}>
+                <div className='flex justify-end items-center ml-8'>
+                  <input onChange={(e)=>setInputValue(e.target.value) }
+                  disabled={!isInputOpen} placeholder={`${(isInputOpen )?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen || inputValue !== "")?`w-[30vw]`:`w-[2.9rem] bg-[#AC8C6F]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
+                  <button onClick={()=>(inputValue === "")&&setInputOpen(!isInputOpen)} className={`  ${(isInputOpen)?``:` bg-blck text-white `} duration-200 outline-none  absolute border mr-1 border-zinc-300  p-2 font-light text- rounded-full`}>
                     <MagnifyingGlassIcon className=" size-5 " />
                   </button>
                 </div>
 
-                </div>
               </div>
-            <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-3  h-fit  ">
+            <div className="hidden lg:ml-6 lg:flex lg:items-center space-x-3  h-fit  ">
               <button className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full">
                 <HeartIcon className=" size-5" />
               </button>
@@ -79,7 +79,7 @@ function Example() {
 
             </div>
             </div>
-            <div className=' flex justify-end my-auto'>
+            <div className=' flex justify-end my-auto max-lg:hidden'>
             <LangMenu 
                   Items={[
                     { name: "English", country: "US" },
@@ -89,7 +89,7 @@ function Example() {
                   ]}
                 />
             </div>
-            <div className="-mr-2 flex gap-12 items-center sm:hidden">
+            <div className="-mr-2 flex gap-12 items-center lg:hidden">
             <div className='flex justify-end items-center'>
                 <input placeholder='search...' type='text' className='border w-[50vw] px-3 py-[.55rem] outline-none focus:ring-1 ring-[#AE8D70] rounded-full '/>
                 <button className=" absolute border mr-[.19rem] border-zinc-300  p-2 font-light text- rounded-full">
