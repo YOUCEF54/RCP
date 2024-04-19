@@ -17,6 +17,7 @@
     "country-flag-icons": "^1.5.11",
     "framer-motion": "^11.0.28",
     "keep-react": "^1.2.0",
+    "loadash": "^1.0.0",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "phosphor-react": "^1.4.1",

@@ -54,10 +54,10 @@ function Nav({toggleDarkMode}) {
                   
                 </div> */}
                 {/* inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 max-md:hidden  */}
-                <div className='flex justify-end items-center ml-8'>
+                <div className='flex justify-end items-center ml-8  '>
                   <input onChange={(e)=>setInputValue(e.target.value) }
-                  disabled={!isInputOpen} placeholder={`${(isInputOpen )?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen || inputValue !== "")?`w-[30vw]`:`w-[2.9rem] absolute bg-[#AC8C6F]`}  outline-none focus:ring-1 ring-[#AE8D70]  px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out  `}/>
-                  <button onClick={()=>(inputValue === "")&&setInputOpen(!isInputOpen)} className={`  ${(isInputOpen)?``:` bg-blck text-white `} duration-200 outline-none  absolute border mr-1 border-zinc-300  p-2 font-light text- rounded-full`}>
+                  disabled={!isInputOpen} placeholder={`${(isInputOpen )?`search...`:``}`} type='text' className={` border border-zinc-300 ${(isInputOpen || inputValue !== "")?`w-[30vw]`:`w-[2.9rem] absolute bg-[#AC8C6F]`} outline-none focus:ring-1 ring-[#AE8D70] px-3 py-[.66rem] rounded-full transition-width duration-300 ease-in-out ${toggleDarkMode&&`bg-black `}`}/>
+                  <button onClick={()=>(inputValue === "")&&setInputOpen(!isInputOpen)} className={`  ${(isInputOpen)?``:` bg-[#AC8C6F] text-white `} duration-200 outline-none  absolute border mr-1 border-zinc-300  p-2 font-light text- rounded-full`}>
                     <MagnifyingGlassIcon className=" size-5 " />
                   </button>
                 </div>
