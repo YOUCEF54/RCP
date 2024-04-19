@@ -9,16 +9,16 @@ import { Bars3Icon, XMarkIcon, ShoppingCartIcon, HeartIcon, MagnifyingGlassIcon 
 import LangMenu from './LangMenu';
 import { useAnimation } from 'framer-motion';
 
-function Example() {
+function Nav({toggleDarkMode}) {
   const [currentPath] = useState(window.location.pathname);
   
 
   const menu = [
-    { name: 'Home', url: '/', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 px-0 " },
-    { name: 'New Clothes', url: '/new_clothes', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
-    { name: 'Trending', url: '/trending', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
-    { name: 'About us', url: '/about_us', className: "inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
-    { name: 'Contact us', url: '/contact_us', className: " inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'Home', url: '/', className: "inline-flex items-center border-b-2 border-transparent px pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 px-0 " },
+    { name: 'New Clothes', url: '/new_clothes', className: "inline-flex items-center border-b-2 border-transparent px pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'Trending', url: '/trending', className: "inline-flex items-center border-b-2 border-transparent px pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'About us', url: '/about_us', className: "inline-flex items-center border-b-2 border-transparent px pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
+    { name: 'Contact us', url: '/contact_us', className: " inline-flex items-center border-b-2 border-transparent px pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700  px-0 " },
   ];
 
   function classNames(...classes) {
@@ -31,20 +31,21 @@ function Example() {
   const [isInputOpen , setInputOpen] = useState(false)
 
   return (
-    <Disclosure as="nav" className="bg-white">
+    
+    <Disclosure as="nav" className="">
       {({ open }) => (
         <>
         <Cart isOpen={isOpen} setOpen={setOpen} />
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <div className="flex h-16 justify-between ">
             <div className="flex justify-between items-center h-full w-full px-6 ">
-              <div className="flex font-roboto   font-bold text-3xl flex-shrink-0 items-center ">
+              <div className="flex font-roboto text-[#AC8C6F]  font-bold text-3xl flex-shrink-0 items-center ">
                 Logo
               </div>
-              <div className={`hidden  lg:flex justify-end w-full sm:space-x-4  `}>
-                <div className='mr-12 space-x-4'>
+              <div className={`hidden  lg:flex justify-end w-full sm:space-x-4  h-[60%] `}>
+                <div className=' flex mr-12 space-x-6  justify-center'>
                 {menu.map((e, index) => (
-                  <a href={e.url} key={index} className={classNames((currentPath === e.url) && " w-fit  border-b-2 border-zinc-400", e.className,`sm:${(isInputOpen)&&`hidden`}`)} >
+                  <a href={e.url} key={index} className={classNames((currentPath === e.url) && " w-fit  border-b-2 border-zinc-400", e.className,` sm:${(isInputOpen)&&`hidden`}`)} >
                     {e.name}
                   </a>
                 ))}
@@ -67,9 +68,9 @@ function Example() {
                 <HeartIcon className=" size-5" />
               </button>
                 {/* <UserIcon className=" size-5" /> */}
-            <div className=' '>
-                <UserDropDown/>
-            </div>
+            
+                <UserDropDown toggleDarkMode={toggleDarkMode}/>
+                {/* {toggleDarkMode?"true":"false"} */}
 
               <Badge content={2} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
               <Button 
@@ -92,15 +93,8 @@ function Example() {
                 />
             </div>
             
-            <div className='my-auto  w-[1000%] lg:size-0'>
+            <div className='my-auto lg:size-0'>
               <div className="-mr- flex justify-center w-full  items-center lg:hidden">
-              <div className='flex  justify-end items-center m-auto'>
-                  <input placeholder='search...' type='text' className='border w-[50vw] px-3 py-[.55rem] outline-none focus:ring-1 ring-[#AE8D70] rounded-full '/>
-                  <button className=" absolute border mr-[.19rem] border-zinc-300  p-2 font-light text- rounded-full">
-                    <MagnifyingGlassIcon className=" size-5 " />
-                  </button>
-              </div>
-            
               <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                 {open ? (
                   <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -151,4 +145,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default Nav;

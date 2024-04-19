@@ -43,7 +43,7 @@ const profileMenuItems = [
   },
 ];
  
-function ProfileMenu() {
+function ProfileMenu({toggleDarkMode}) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
  
   const closeMenu = () => setIsMenuOpen(false);
@@ -51,12 +51,13 @@ function ProfileMenu() {
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
-      <button className=" bg-[#0095FB]f border border-zinc-300 p-2 font-light text- rounded-full ">
+      <button className=" bg-[#0095FB]f border p-2 font-light  rounded-full ">
 
-            <UserIcon className="text-black  size-5" />
+            <UserIcon className=" size-5" />
         </button>
       </MenuHandler>
-      <MenuList className="p-2 w-[12rem] gap-2 space-y-2 ">
+
+      <MenuList className={`p-2 w-[12rem] gap-2 space-y-2 ${(toggleDarkMode) ? ` bg-zinc-900`:`bg-white`}`}>
         {profileMenuItems.map(({ label, icon }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
           return (
@@ -91,14 +92,11 @@ function ProfileMenu() {
   );
 }
  
-export function UserDropDown() {
+export function UserDropDown({toggleDarkMode}) {
 
   return (
-    <Navbar className=" border-none">
       <div className="relative mx-auto flex items-center justify-between text-blue-gray-900">
-        <ProfileMenu />
+        <ProfileMenu toggleDarkMode={toggleDarkMode} />
       </div>
-
-    </Navbar>
   );
 }

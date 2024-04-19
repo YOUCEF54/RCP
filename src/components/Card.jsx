@@ -16,7 +16,7 @@ export default function Card(){
     },[isInView])
     return(
         
-<div ref={ref} class="flex sm:flex-col max-w-md overflow-hidden bg-white rounded-lg shadow-lg">
+<div ref={ref} class="flex sm:flex-col max-w-md overflow-hidden rounded-lg shadow-lg">
     <motion.div 
         variants={
             {
@@ -112,7 +112,9 @@ export default function Card(){
 
         <div class="flex justify-end gap-2 mt-3 item-center ">
             <button className="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-500 rounded">
+                <a href="../ProductDetail">
                 see more
+                </a>
             </button>
             <button class="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-800 rounded">
                 Add to Card
