@@ -5,28 +5,26 @@ export default function ProductDetails(){
       <div class="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
         <div class="grid items-start grid-cols-1 lg:grid-cols-5 gap-12">
           <div class="lg:col-span-3 w-full lg:sticky top-0 text-center">
-            <div class="bg-gray-800  p-4 rounded-xl relative">
-              <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product" className="w-[95%] z-50  absolute top-4 left-4 rounded object-cover hover:object-contain h-[50vh]" />
-              <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product"
-               className="w-full  blur-md z-0  rounded object-cover hover:object-contain h-[50vh]" />
+            <div class="bg-gray-800 px-4 py-10 rounded-xl">
+              <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product" class="w-4/5 rounded object-cover" />
             </div>
             <div class="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-6 mx-auto">
               <div class="bg-gray-800 rounded-xl p-4">
-                <img className="h-[5rem]" src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product2" class="w-24 cursor-pointer" />
+                <img className="h-[5rem]" src="https://readymadeui.com/images/coffee3.webp" alt="Product2" class="w-24 cursor-pointer" />
               </div>
               <div class="bg-gray-800 rounded-xl p-4">
-                <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product2" class="w-24 cursor-pointer" />
+                <img src="https://readymadeui.com/images/coffee4.webp" alt="Product2" class="w-24 cursor-pointer" />
               </div>
               <div class="bg-gray-800 rounded-xl p-4">
-                <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product2" class="w-24 cursor-pointer" />
+                <img src="https://readymadeui.com/images/coffee5.webp" alt="Product2" class="w-24 cursor-pointer" />
               </div>
             </div>
           </div>
           <div class="lg:col-span-2">
-            <h2 class="text-2xl font-extrabold text-yellow-300">T-shirt | Men</h2>
+            <h2 class="text-2xl font-extrabold text-yellow-300">Espresso Elegante | Coffee</h2>
             <div class="flex flex-wrap gap-4 mt-4">
-              <p class="text-yellow-300 text-4xl font-bold">$120</p>
-              <p class="text-gray-400 text-xl"><strike>$160</strike> <span class="text-sm ml-1">Tax included</span></p>
+              <p class="text-yellow-300 text-4xl font-bold">$12</p>
+              <p class="text-gray-400 text-xl"><strike>$16</strike> <span class="text-sm ml-1">Tax included</span></p>
             </div>
             <div class="flex space-x-2 mt-4">
               <svg class="w-5 fill-yellow-300" viewBox="0 0 14 13" fill="none"
@@ -61,12 +59,12 @@ export default function ProductDetails(){
               <button type="button" class="min-w-[200px] px-4 py-2.5 border border-yellow-300 bg-transparent text-yellow-300 text-sm font-bold rounded">Add to cart</button>
             </div>
             <div class="mt-8">
-              <h3 class="text-lg font-bold text-yellow-300">About the Product</h3>
+              <h3 class="text-lg font-bold text-yellow-300">About the coffee</h3>
               <ul class="space-y-3 list-disc mt-4 pl-4 text-sm text-white">
-                <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur!</li>
-                <li>Excepturi vel ipsum dolor sit amet.</li>
-                <li>Sit amet consectetur adipisicing elit. Facere itaque voluptatum quos.</li>
-                <li>Atque debitis culpa dignissimos ullam animi excepturi vel. Eos, dignissimos!</li>
+                <li>A cup of coffee is a beverage essential because of its timeless appeal</li>
+                <li>Easy to prepare. It can be brewed using various methods, from drip machines to manual pour-overs.</li>
+                <li>Available in various sizes, from a standard espresso shot to a large Americano, catering to different preferences.</li>
+                <li>You can customize your coffee by adding cream, sugar, or flavorings to suit your taste preferences.</li>
               </ul>
             </div>
             <div class="mt-8">
@@ -136,7 +134,7 @@ export default function ProductDetails(){
                 </div>
               </div>
               <div class="flex items-start mt-8">
-                <img src="https://readymadeui.com/team-2.webp" alt="team" className="w-12 h-12 rounded-full border-2 border-white" />
+                <img src="https://readymadeui.com/team-2.webp" class="w-12 h-12 rounded-full border-2 border-white" />
                 <div class="ml-3">
                   <h4 class="text-sm font-bold text-white">John Doe</h4>
                   <div class="flex space-x-1 mt-1">
@@ -167,7 +165,7 @@ export default function ProductDetails(){
                     </svg>
                     <p class="text-xs !ml-2 font-semibold text-white">2 mins ago</p>
                   </div>
-                  <p class="text-xs mt-4 text-white">The service was amazing. I never had to wait that long for my demand. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
+                  <p class="text-xs mt-4 text-white">The service was amazing. I never had to wait that long for my food. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
                 </div>
               </div>
               <button type="button" class="w-full mt-8 px-4 py-2 bg-transparent border-2 border-yellow-300 text-yellow-300 font-bold rounded">Read all reviews</button>

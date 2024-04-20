@@ -3,6 +3,7 @@ import Product_img from "../../src/product1.png"
 import { useAnimation, useInView,motion } from "framer-motion"
 import { Rating } from "@material-tailwind/react";
 import { RatingUI } from "./RatingUI";
+import BModal from "./Modal";
 
 
 export default function Card(){
@@ -111,11 +112,9 @@ export default function Card(){
                 </div> */}
 
         <div class="flex justify-end gap-2 mt-3 item-center ">
-            <button className="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-500 rounded">
-                <a href="../ProductDetail">
-                see more
-                </a>
-            </button>
+            
+                {/* <BModal/> */}
+                <a className="px-3 py-2 text-xs font-bold text-white uppercase bg-zinc-700 rounded " href="/product_details">See More</a>
             <button class="px-3 py-2 text-xs font-bold text-white uppercase bg-gray-800 rounded">
                 Add to Card
             </button>
