@@ -39,9 +39,9 @@ function Nav({toggleDarkMode}) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ">
           <div className="flex h-16 justify-between ">
             <div className="flex justify-between items-center h-full w-full px-6 ">
-              <div className="flex font-roboto text-[#AC8C6F]  font-bold text-3xl flex-shrink-0 items-center ">
+              <a href="/" className="flex font-roboto text-[#AC8C6F]  font-bold text-3xl flex-shrink-0 items-center ">
                 Logo
-              </div>
+              </a>
               <div className={`hidden  lg:flex justify-end w-full sm:space-x-4  h-[60%] `}>
                 <div className=' flex mr-12 space-x-6  justify-center'>
                 {menu.map((e, index) => (
