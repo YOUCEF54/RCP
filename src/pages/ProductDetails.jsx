@@ -1,24 +1,35 @@
+import { useState } from "react"
+
+
 
 export default function ProductDetails(){
+
+  const [productImage, setProductImage] = useState(process.env.REACT_APP_PRODUCT_IMAGE1)
     return(
         <div class="font-[sans-serif] bg-gray-700">
       <div class="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
         <div class="grid items-start grid-cols-1 lg:grid-cols-5 gap-12">
           <div class="lg:col-span-3 w-full lg:sticky top-0 text-center">
-            <div class="bg-gray-800  p-4 rounded-xl relative">
-              <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product" className="w-[95%] z-50  absolute top-4 left-4 rounded object-cover hover:object-contain h-[50vh]" />
-              <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product"
-               className="w-full  blur-md z-0  rounded object-cover hover:object-contain h-[50vh]" />
+            <div class="bg-gray-800  p-2 rounded-xl relative ">
+              <img src={productImage} alt="Product"
+                className="w-[97.5%] z-50 duration-300 ease-in-out absolute top-2 left-2 rounded-md object-cover hover:object-contain h-[50vh]" />
+                <div className="rounded overflow-hidden">
+              <img src={productImage} alt="Product"
+               className=" size-full  blur-md z-0   object-cover hover:object-contain h-[50vh]" />
+                </div>
             </div>
-            <div class="mt-6 flex flex-wrap justify-center gap-x-10 gap-y-6 mx-auto">
-              <div class="bg-gray-800 rounded-xl p-4">
-                <img className="h-[5rem]" src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product2" class="w-24 cursor-pointer" />
+            <div class="mt-6 flex justify-center gap-6 mx-auto relative">
+              <div class="bg-gray-800 rounded-xl p-2 size-[10rem]">
+                <img onClick={(e)=>setProductImage(e.target.src)} src={process.env.REACT_APP_PRODUCT_IMAGE1} alt="Product1"
+                class=" object-cover size-full rounded-md  cursor-pointer " />
               </div>
-              <div class="bg-gray-800 rounded-xl p-4">
-                <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product2" class="w-24 cursor-pointer" />
+              <div class="bg-gray-800 rounded-xl p-2 size-[10rem]">
+                <img onClick={(e)=>setProductImage(e.target.src)} src={process.env.REACT_APP_PRODUCT_IMAGE2} alt="Product2"
+                class=" object-cover size-full rounded-md cursor-pointer" />
               </div>
-              <div class="bg-gray-800 rounded-xl p-4">
-                <img src={process.env.REACT_APP_PRODUCT_IMAGE} alt="Product2" class="w-24 cursor-pointer" />
+              <div class="bg-gray-800 rounded-xl p-2 size-[10rem]">
+                <img onClick={(e)=>setProductImage(e.target.src)} src={process.env.REACT_APP_PRODUCT_IMAGE3} alt="Product3"
+                class=" object-cover size-full rounded-md cursor-pointer" />
               </div>
             </div>
           </div>
