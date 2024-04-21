@@ -1,79 +1,59 @@
 import { useState } from "react"
+// import { Rating } from "@material-tailwind/react";
+import { Rating } from "@mui/material";
+
 
 
 
 export default function ProductDetails(){
 
+  const[qnt,setQnt] = useState(1)
+
   const [productImage, setProductImage] = useState(process.env.REACT_APP_PRODUCT_IMAGE1)
     return(
-        <div class="font-[sans-serif] bg-gray-700">
+        <div class="font-[sans-serif] ">
       <div class="p-6 lg:max-w-7xl max-w-2xl max-lg:mx-auto">
         <div class="grid items-start grid-cols-1 lg:grid-cols-5 gap-12">
           <div class="lg:col-span-3 w-full lg:sticky top-0 text-center">
-            <div class="bg-gray-800  p-2 rounded-xl relative ">
+            <div class=" relative h-[65vh] m-auto rounded-xl ">
               <img src={productImage} alt="Product"
-                className="w-[97.5%] z-50 duration-300 ease-in-out absolute top-2 left-2 rounded-md object-cover hover:object-contain h-[50vh]" />
-                <div className="rounded overflow-hidden">
+                className="z-50 duration-300 ease-in-out absolute top-0 left-0 rounded-xl object-cover hover:object-contain w-full h-full" />
+                <div className="rounded-xl relative overflow-hidden  h-full">
               <img src={productImage} alt="Product"
-               className=" size-full  blur-md z-0   object-cover hover:object-contain h-[50vh]" />
+               className="blur-md z-0 scale-110 rounded-xl object-cover hover:object-contain h-full w-full" />
                 </div>
             </div>
             <div class="mt-6 flex justify-center gap-6 mx-auto relative">
-              <div class="bg-gray-800 rounded-xl p-2 size-[10rem]">
+              <div class="bg-gray-800 rounded-xl p-2 size-[8rem]">
                 <img onClick={(e)=>setProductImage(e.target.src)} src={process.env.REACT_APP_PRODUCT_IMAGE1} alt="Product1"
-                class=" object-cover size-full rounded-md  cursor-pointer " />
+                class={`${(productImage === process.env.REACT_APP_PRODUCT_IMAGE1)?` opacity-30`:` opacity-100`} object-cover size-full rounded-md  cursor-pointer `} />
               </div>
-              <div class="bg-gray-800 rounded-xl p-2 size-[10rem]">
+              <div class="bg-gray-800 rounded-xl p-2 size-[8rem]">
                 <img onClick={(e)=>setProductImage(e.target.src)} src={process.env.REACT_APP_PRODUCT_IMAGE2} alt="Product2"
-                class=" object-cover size-full rounded-md cursor-pointer" />
-              </div>
-              <div class="bg-gray-800 rounded-xl p-2 size-[10rem]">
+                class={`${(productImage === process.env.REACT_APP_PRODUCT_IMAGE2)?` opacity-30`:` opacity-100`} object-cover size-full rounded-md  cursor-pointer `} />
+                </div>
+              <div class="bg-gray-800 rounded-xl p-2 size-[8rem]">
                 <img onClick={(e)=>setProductImage(e.target.src)} src={process.env.REACT_APP_PRODUCT_IMAGE3} alt="Product3"
-                class=" object-cover size-full rounded-md cursor-pointer" />
-              </div>
+                class={`${(productImage === process.env.REACT_APP_PRODUCT_IMAGE3)?` opacity-30`:` opacity-100`} object-cover size-full rounded-md  cursor-pointer `} />
+                </div>
             </div>
           </div>
           <div class="lg:col-span-2">
-            <h2 class="text-2xl font-extrabold text-yellow-300">T-shirt | Men</h2>
+            <h2 class="text-2xl font-extrabold ">T-shirt | Men</h2>
             <div class="flex flex-wrap gap-4 mt-4">
-              <p class="text-yellow-300 text-4xl font-bold">$120</p>
-              <p class="text-gray-400 text-xl"><strike>$160</strike> <span class="text-sm ml-1">Tax included</span></p>
+              <p class="  text-xl font-bold">$120</p>
             </div>
-            <div class="flex space-x-2 mt-4">
-              <svg class="w-5 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-              </svg>
-              <svg class="w-5 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-              </svg>
-              <svg class="w-5 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-              </svg>
-              <svg class="w-5 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-              </svg>
-              <svg class="w-5 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-              </svg>
-              <h4 class="text-white text-base">500 Reviews</h4>
+            <div className="flex items-center space-x-1">
+            <Rating defaultValue={4} readOnly/>
+            <span className=" text-sm">(50 reviews)</span>
             </div>
             <div class="flex flex-wrap gap-4 mt-8">
-              <button type="button" class="min-w-[200px] px-4 py-3 bg-yellow-300 hover:bg-yellow-400 text-black text-sm font-bold rounded">Buy now</button>
-              <button type="button" class="min-w-[200px] px-4 py-2.5 border border-yellow-300 bg-transparent text-yellow-300 text-sm font-bold rounded">Add to cart</button>
+              <button type="button" class="min-w-[200px] px-4 py-3 bg-[#b38962] text-white hover:bg-[#a77343]  text-sm font-bold rounded">Buy now</button>
+              <button type="button" class="min-w-[200px] px-4 py-2.5 border border-neutral-300 bg-transparent text-yellow-30 text-sm font-bold rounded">Add to cart</button>
             </div>
             <div class="mt-8">
-              <h3 class="text-lg font-bold text-yellow-300">About the Product</h3>
-              <ul class="space-y-3 list-disc mt-4 pl-4 text-sm text-white">
+              <h3 class="text-lg font-bold text-yellow-30">About the Product</h3>
+              <ul class="space-y-3 list-disc mt-4 pl-4 text-sm ">
                 <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur!</li>
                 <li>Excepturi vel ipsum dolor sit amet.</li>
                 <li>Sit amet consectetur adipisicing elit. Facere itaque voluptatum quos.</li>
@@ -81,107 +61,79 @@ export default function ProductDetails(){
               </ul>
             </div>
             <div class="mt-8">
-              <ul class="flex">
-                <li class="text-white font-bold text-sm bg-gray-800 py-3 px-8 border-b-2 border-yellow-300 cursor-pointer transition-all">
-                  Reviews</li>
-                <li class="text-white font-bold text-sm py-3 px-8 cursor-pointer">Sellter</li>
-              </ul>
+              
               <div class="mt-8">
-                <h3 class="text-lg font-bold text-yellow-300">Reviews(10)</h3>
+                <h3 class="text-lg font-bold text-yellow-30">Reviews(10)</h3>
                 <div class="space-y-3 mt-4">
                   <div class="flex items-center">
-                    <p class="text-sm text-white font-bold">5.0</p>
-                    <svg class="w-5 fill-yellow-300 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p class="text-sm text-whit font-bold">5.0</p>
+                    <svg class="w-5 fill-yellow-30 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
                     </svg>
-                    <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                      <div class="w-2/3 h-full rounded bg-yellow-300"></div>
+                    <div class="bg-slate-200 rounded w-full h-2 ml-3">
+                      <div class="w-2/3 h-full rounded  bg-amber-400"></div>
                     </div>
-                    <p class="text-sm text-white font-bold ml-3">66%</p>
+                    <p class="text-sm text-whit font-bold ml-3">66%</p>
                   </div>
                   <div class="flex items-center">
-                    <p class="text-sm text-white font-bold">4.0</p>
-                    <svg class="w-5 fill-yellow-300 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p class="text-sm text-whit font-bold">4.0</p>
+                    <svg class="w-5 fill-yellow-30 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
                     </svg>
-                    <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                      <div class="w-1/3 h-full rounded bg-yellow-300"></div>
+                    <div class="bg-slate-200 rounded w-full h-2 ml-3">
+                      <div class="w-1/3 h-full rounded bg-amber-400"></div>
                     </div>
-                    <p class="text-sm text-white font-bold ml-3">33%</p>
+                    <p class="text-sm text-whit font-bold ml-3">33%</p>
                   </div>
                   <div class="flex items-center">
-                    <p class="text-sm text-white font-bold">3.0</p>
-                    <svg class="w-5 fill-yellow-300 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p class="text-sm text-whit font-bold">3.0</p>
+                    <svg class="w-5 fill-yellow-30 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
                     </svg>
-                    <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                      <div class="w-1/6 h-full rounded bg-yellow-300"></div>
+                    <div class="bg-slate-200 rounded w-full h-2 ml-3">
+                      <div class="w-1/6 h-full rounded bg-amber-400"></div>
                     </div>
-                    <p class="text-sm text-white font-bold ml-3">16%</p>
+                    <p class="text-sm text-whit font-bold ml-3">16%</p>
                   </div>
                   <div class="flex items-center">
-                    <p class="text-sm text-white font-bold">2.0</p>
-                    <svg class="w-5 fill-yellow-300 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p class="text-sm text-whit font-bold">2.0</p>
+                    <svg class="w-5 fill-yellow-30 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
                     </svg>
-                    <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                      <div class="w-1/12 h-full rounded bg-yellow-300"></div>
+                    <div class="bg-slate-200 rounded w-full h-2 ml-3">
+                      <div class="w-1/12 h-full rounded bg-amber-400"></div>
                     </div>
-                    <p class="text-sm text-white font-bold ml-3">8%</p>
+                    <p class="text-sm text-whit font-bold ml-3">8%</p>
                   </div>
                   <div class="flex items-center">
-                    <p class="text-sm text-white font-bold">1.0</p>
-                    <svg class="w-5 fill-yellow-300 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <p class="text-sm text-whit font-bold">1.0</p>
+                    <svg class="w-5 fill-yellow-30 ml-1" viewBox="0 0 14 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
                         d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
                     </svg>
-                    <div class="bg-gray-400 rounded w-full h-2 ml-3">
-                      <div class="w-[6%] h-full rounded bg-yellow-300"></div>
+                    <div class="bg-slate-200 rounded w-full h-2 ml-3">
+                      <div class="w-[6%] h-full rounded bg-amber-400"></div>
                     </div>
-                    <p class="text-sm text-white font-bold ml-3">6%</p>
+                    <p class="text-sm text-whit font-bold ml-3">6%</p>
                   </div>
                 </div>
               </div>
               <div class="flex items-start mt-8">
                 <img src="https://readymadeui.com/team-2.webp" alt="team" className="w-12 h-12 rounded-full border-2 border-white" />
                 <div class="ml-3">
-                  <h4 class="text-sm font-bold text-white">John Doe</h4>
-                  <div class="flex space-x-1 mt-1">
-                    <svg class="w-4 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                    </svg>
-                    <svg class="w-4 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                    </svg>
-                    <svg class="w-4 fill-yellow-300" viewBox="0 0 14 13" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                    </svg>
-                    <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                    </svg>
-                    <svg class="w-4 fill-[#CED5D8]" viewBox="0 0 14 13" fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M7 0L9.4687 3.60213L13.6574 4.83688L10.9944 8.29787L11.1145 12.6631L7 11.2L2.8855 12.6631L3.00556 8.29787L0.342604 4.83688L4.5313 3.60213L7 0Z" />
-                    </svg>
-                    <p class="text-xs !ml-2 font-semibold text-white">2 mins ago</p>
+                  <h4 class="text-sm font-bold text-whit">John Doe</h4>
+                  <div class="flex items-center space-x-1 mt-1">
+                    <Rating defaultValue={4} size="small" readOnly/>
+                    <p class="text-xs !ml-2 font-semibold text-whit">2 mins ago</p>
                   </div>
-                  <p class="text-xs mt-4 text-white">The service was amazing. I never had to wait that long for my demand. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
+                  <p class="text-xs mt-4 text-whit">The service was amazing. I never had to wait that long for my demand. The staff was friendly and attentive, and the delivery was impressively prompt.</p>
                 </div>
               </div>
-              <button type="button" class="w-full mt-8 px-4 py-2 bg-transparent border-2 border-yellow-300 text-yellow-300 font-bold rounded">Read all reviews</button>
+              <button type="button" class="w-full mt-8 px-4 py-2 bg-transparent border-2 border-yellow-30 text-yellow-30 font-bold rounded">Read all reviews</button>
             </div>
           </div>
         </div>
