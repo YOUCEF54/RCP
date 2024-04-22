@@ -5,7 +5,6 @@ import { Rating } from "@material-tailwind/react";
 import { RatingUI } from "./RatingUI";
 import BModal from "./Modal";
 
-
 export default function Card(){
     const ref= useRef(null);
     const isInView = useInView(ref, {once: true})

@@ -1,13 +1,19 @@
 import { useState } from "react"
 // import { Rating } from "@material-tailwind/react";
 import { Rating } from "@mui/material";
-
-
-
+import { Counter } from "../components/Counter";
+import { add } from "../redux/addToCartSlice";
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from '../redux/productCounterSlice'
+import { MinusIcon } from '@heroicons/react/24/outline'
+import { TbMinus } from 'react-icons/tb'
+import { TbPlus } from 'react-icons/tb'
+import Modal from "../components/Modal"
 
 export default function ProductDetails(){
-
-  const[qnt,setQnt] = useState(1)
+  const count = useSelector((state) => state.addToCart.value)
+  const dispatch = useDispatch()
+  const[qnt,setQnt] = useState(0)
 
   const [productImage, setProductImage] = useState(process.env.REACT_APP_PRODUCT_IMAGE1)
     return(
@@ -43,14 +49,41 @@ export default function ProductDetails(){
             <div class="flex flex-wrap gap-4 mt-4">
               <p class="  text-xl font-bold">$120</p>
             </div>
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center space-x-1 mb-4">
             <Rating defaultValue={4} readOnly/>
             <span className=" text-sm">(50 reviews)</span>
             </div>
-            <div class="flex flex-wrap gap-4 mt-8">
-              <button type="button" class="min-w-[200px] px-4 py-3 bg-[#b38962] text-white hover:bg-[#a77343]  text-sm font-bold rounded">Buy now</button>
-              <button type="button" class="min-w-[200px] px-4 py-2.5 border border-neutral-300 bg-transparent text-yellow-30 text-sm font-bold rounded">Add to cart</button>
+{/*---------COUNTER ---------------------------------------------------------------------- */}
+            <div>
+              <div className=' flex items-center space-x-3 border border-neutral-400 rounded-md w-fit'>
+                <button
+                className='border flex items-center justify-center hover:bg-neutral-100 border-r-neutral-400 rounded-md w-8 h-7 '
+                  aria-label="Increment value"
+                  onClick={() => setQnt(qnt+1)}
+                >
+                  <TbPlus/>
+                </button>
+                <span>{qnt}</span>
+                <button
+                className='border flex items-center justify-center hover:bg-neutral-100 border-l-neutral-400 rounded-md w-8 h-7 '
+                  aria-label="Decrement value"
+                  onClick={() => setQnt((qnt === 0) ?qnt:qnt-1)}
+                >
+                  <TbMinus/>
+                </button>
+              </div>
             </div>
+            {/* <Counter/> */}
+            {/*MAIN ACTION BUTTONS*/}
+            <div class="flex flex-wrap gap-4 mt-2 ">
+              <button type="button" class="min-w-[200px] px-4 py-3 bg-[#b38962] text-white hover:bg-[#a77343]  text-sm font-bold rounded">Buy now</button>
+              <button onClick={()=>{
+                dispatch(add(qnt))
+              }} type="button" class="min-w-[200px] px-4 py-2.5 border border-neutral-300 bg-transparent text-yellow-30 text-sm font-bold rounded">Add to cart</button>
+              {/* <button type="button" class="min-w-[200px] px-4 py-3 border border-neutral-300  bg-transparent  text-sm font-bold rounded">Submit your riview</button> */}
+              <Modal/>
+            </div>
+            {/* ABOUT PRODUCT */}
             <div class="mt-8">
               <h3 class="text-lg font-bold text-yellow-30">About the Product</h3>
               <ul class="space-y-3 list-disc mt-4 pl-4 text-sm ">

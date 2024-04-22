@@ -1,5 +1,7 @@
 import BG from "../../src/bg-main.jpg"
 export default function Hero(){
+  
+
     return(
         <div className="z-0 m-auto flex  justify-between h-[100vh]">
         <div

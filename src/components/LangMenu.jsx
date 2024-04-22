@@ -15,10 +15,10 @@ export default function LangMenu({Items}){
     return(
         <Menu as="div" className="relative align-middle   items-center max-md:hidden ">
         <div>
-        <Menu.Button className={"flex items-center border rounded-full w-[8rem]  border-zinc-300 p-1  space-x-6 font-medium  "} >
+        <Menu.Button className={"flex items-center border rounded-full w-[8rem]  border-zinc-300 p-1  space-x-8   "} >
           
-            <span className="flex items-center  gap-2">
-              <Flag  className="m-1 w-[2rem] h-[1.5rem] rounded-full ring-1 ring-offset-1 ring-zinc-300 " country={selectedLang.country}/>
+            <span className="flex items-center space-x-1">
+              <Flag  className="m-1 w-[2rem] h-[1.3rem] rounded-full ring-1 ring-offset-1 ring-zinc-300 " country={selectedLang.country}/>
             {/* {<US title="United States" className=" w-[1.3rem] rounded-sm ring-1 ring-offset-1 ring-black "/>} */}
               <div>
                 {selectedLang.name}

@@ -20,6 +20,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch,{ SwitchProps } from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { Counter } from '../components/Counter';
 function App() {
 
 
@@ -124,6 +125,7 @@ function App() {
       <div className='flex items-center  '>
       <div className='w-full'>
       <Nav toggleDarkMode={toggleDarkMode}/>
+      {/* <Counter/> */}
       </div>
       <FormGroup>
       <FormControlLabel

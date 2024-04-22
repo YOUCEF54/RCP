@@ -3,13 +3,14 @@ import { Disclosure } from '@headlessui/react'
 import { Badge, Button } from "@material-tailwind/react";
 import Cart from './Cart';
 import {UserDropDown} from "./Dropdown"
-
+import { useSelector } from 'react-redux';
 
 import { Bars3Icon, XMarkIcon, ShoppingCartIcon, HeartIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import LangMenu from './LangMenu';
 import { useAnimation } from 'framer-motion';
 
 function Nav({toggleDarkMode}) {
+  const count = useSelector((state)=>state.addToCart.value)
   const [currentPath] = useState(window.location.pathname);
   
 
@@ -72,7 +73,7 @@ function Nav({toggleDarkMode}) {
                 <UserDropDown toggleDarkMode={toggleDarkMode}/>
                 {/* {toggleDarkMode?"true":"false"} */}
 
-              <Badge content={2} className='  px-[.38rem] pt-[0.05rem] pb-[0.2rem] ml-7 -translate-y-1'>
+              <Badge content={count} className={`${(count === 0)? `hidden`:`flex`} items-center justify-center min-w-5 max-h-5 ml-7 -translate-y-1`}>
               <Button 
                 onClick={()=>setOpen(!isOpen)}
                 className=" bg-[#0095FB]f border border-zinc-300  p-2 font-light text- rounded-full ">
