@@ -13,7 +13,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 // import { Switch } from '@mui/material';
 import { useState } from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
 import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -21,6 +20,7 @@ import Switch,{ SwitchProps } from '@mui/material/Switch';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { Counter } from '../components/Counter';
+
 function App() {
 
 
@@ -130,12 +130,11 @@ function App() {
       <FormGroup>
       <FormControlLabel
         control={<MaterialUISwitch checked={toggleDarkMode} onChange={toggleDarkTheme}  sx={{ m: 1 }} defaultChecked />}
-      />
+        />
       </FormGroup>
       {/* <Switch checked={toggleDarkMode} onChange={toggleDarkTheme} /> */}
       </div>
       <RouterProvider router={router} />
-
     </div>
     </ThemeProvider>
   );

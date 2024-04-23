@@ -3,8 +3,9 @@ import { BsGenderFemale } from "react-icons/bs";
 import { TbMoodKidFilled } from "react-icons/tb";
 import { GiBeveledStar } from "react-icons/gi";
 import { GoSun } from "react-icons/go";
-
-
+import AdvancedFilter from "./sidebar_filters"
+import { AdjustmentsHorizontalIcon } from "@heroicons/react/24/outline";
+// import { AdjustmentsHorizontalIcon } from "@heroicons/react/20/solid";
 
 
 export default function Filter(){
@@ -42,6 +43,10 @@ export default function Filter(){
                     <GoSun className=" size-8 " color="white" />
                     </button>
                 </button>
+                
+                <div>
+                    <AdvancedFilter />
+                </div>
                 
                 
                 
