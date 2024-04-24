@@ -86,10 +86,10 @@ function Nav({toggleDarkMode}) {
             <div className='  my-auto max-lg:hidden'>
             <LangMenu 
                   Items={[
-                    { name: "English", country: "US" },
-                    { name: "French", country: "FR" },
-                    { name: "Arabic", country: "MA" },
-                    { name: "Spanish", country: "ES" }
+                    { name: "English", country: "US", lang:"en" },
+                    { name: "French", country: "FR", lang:"fr" },
+                    { name: "Arabic", country: "MA", lang:"ar" },
+                    { name: "Spanish", country: "ES", lang:"es" }
                   ]}
                 />
             </div>

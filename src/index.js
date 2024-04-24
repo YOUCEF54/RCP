@@ -5,7 +5,7 @@ import App from './pages/HomePage';
 import reportWebVitals from './reportWebVitals';
 import { store } from '../src/redux/store'
 import { Provider } from 'react-redux'
-
+import "./i18n.js"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

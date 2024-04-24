@@ -16,7 +16,7 @@ export default function Card(){
     },[isInView])
     return(
         
-<div ref={ref} class="flex sm:flex-col max-w-md overflow-hidden rounded-lg shadow-lg">
+<div ref={ref} class="flex sm:flex-col max-w-md overflow-hidden rounded-lg shadow-lg border">
     <motion.div 
         variants={
             {
@@ -37,14 +37,14 @@ export default function Card(){
    
     <div class="max-sm:w p-4">
         <div className="flex  justify-between items-center">
-            <h1 class="text-2xl font-bold text-gray-900">
+            <h1 class="text-2xl font-bold ">
                 T-shirt For Men
             </h1>
-            <h1 class="text-xl font-bold text-gray-700">
+            <h1 class="text-xl font-bold ">
                     220$
             </h1>
         </div>
-        <p class="mt-2 text-sm text-gray-600">
+        <p class="mt-2 text-sm ">
             You can&#x27;t buy your future, but you can do it. Money is nothing, you&#x27;r everything.
         </p>
 

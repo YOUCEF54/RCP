@@ -9,12 +9,10 @@ import { MinusIcon } from '@heroicons/react/24/outline'
 import { TbMinus } from 'react-icons/tb'
 import { TbPlus } from 'react-icons/tb'
 import Modal from "../components/Modal"
-
 export default function ProductDetails(){
   const count = useSelector((state) => state.addToCart.value)
   const dispatch = useDispatch()
   const[qnt,setQnt] = useState(0)
-
   const [productImage, setProductImage] = useState(process.env.REACT_APP_PRODUCT_IMAGE1)
     return(
         <div class="font-[sans-serif] ">

@@ -10,16 +10,14 @@ import { RouterProvider } from 'react-router-dom';
 import ProductDetails from "./ProductDetails"
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-// import { Switch } from '@mui/material';
 import { useState } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Switch,{ SwitchProps } from '@mui/material/Switch';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import { Counter } from '../components/Counter';
+import Switch from '@mui/material/Switch';
+import Footer from '../components/Footer';
+import { useTranslation } from "react-i18next";
+import { ArrowUpIcon } from '@heroicons/react/24/outline';
 
 function App() {
 
@@ -100,11 +98,14 @@ function App() {
     },
   }));
 
-  
+  const {t} = useTranslation()
   function HomePage(){
     return(
       <div>
         <Hero/>
+        <div className='text-center mt-10 text-2xl'>
+          {t("greeting")}
+        </div>
               <Filter/>
 
               <div className='m-auto items-center max-md:flex max-md:flex-col  grid xl:grid-cols-3 2xl:grid-cols-4 max-xl:grid-cols-2  justify-between  gap-6 mx-[10vw]'>
@@ -116,6 +117,13 @@ function App() {
     )
   }
 
+
+  const ScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  }
 
 
   return (
@@ -136,6 +144,11 @@ function App() {
       </div>
       <RouterProvider router={router} />
     </div>
+      <Footer/>
+    <button onClick={()=>ScrollToTop()}
+      className='bg-slate-200 p-3 border border-zinc-500 left-full mr-4 mb-4 bottom-4 sticky  rounded-full'>
+      <ArrowUpIcon className=' size-6'/>
+    </button>
     </ThemeProvider>
   );
 }

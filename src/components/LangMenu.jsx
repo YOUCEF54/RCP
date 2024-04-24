@@ -1,17 +1,22 @@
 import {  Menu, Transition } from '@headlessui/react'
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 import { MdKeyboardArrowDown } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
-import { US } from 'country-flag-icons/react/3x2'
 import Flag from 'react-flagkit';
 
 export default function LangMenu({Items}){
-      const [selectedLang, setLang] = useState(Items[0]);
-      const Langs = Items.map(e => ({name:e.name,country:e.country}))
+  const {i18n} = useTranslation()
+      const [selectedLang, setLang] = useState(Items.find(item => item.lang === i18n.language));
+      const Langs = Items.map(e => ({name:e.name,country:e.country,lang:e.lang}))
       function classNames(...classes) {
         return classes.filter(Boolean).join(' ')
       }
-    
+
+      useEffect(()=>{
+        i18n.changeLanguage(selectedLang.lang)
+      },[selectedLang,i18n])
+
     return(
         <Menu as="div" className="relative align-middle   items-center max-md:hidden ">
         <div>
@@ -43,7 +48,10 @@ export default function LangMenu({Items}){
                     <Menu.Item key={index}>
                       {({ active }) => (
                                <button
-                               onClick={()=>setLang(lang)}
+                               onClick={()=>{
+                                setLang(lang)
+
+                              }}
                                className={classNames(active ? 'bg-gray-100' : '', ' px-4 py-2 text-sm text-gray-700 w-full text-start flex space-x-3 items-center')}
                              >
                               <Flag country={lang.country}/>
