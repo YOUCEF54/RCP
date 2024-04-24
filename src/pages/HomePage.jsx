@@ -146,8 +146,8 @@ function App() {
     </div>
       <Footer/>
     <button onClick={()=>ScrollToTop()}
-      className='bg-slate-200 p-3 border border-zinc-500 left-full mr-4 mb-4 bottom-4 sticky  rounded-full'>
-      <ArrowUpIcon className=' size-6'/>
+      className='bg-[#c9a98a] text-[#543214] p-3 border border-[#543214] left-full mr-4 mb-4 bottom-4 sticky  rounded-full'>
+      <ArrowUpIcon className=' size-5'/>
     </button>
     </ThemeProvider>
   );
